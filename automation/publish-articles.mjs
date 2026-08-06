@@ -24,7 +24,14 @@ const REPO_ROOT = path.resolve(__dirname, "..")
 
 const DRY_RUN = process.argv.includes("--dry-run")
 const OBSIDIAN_DIR = process.env.OBSIDIAN_DIR || "/workspace/obsidian_claude"
-const BLOG_DIR = path.join(OBSIDIAN_DIR, "blog")
+// 발행 소스 디렉토리 두 곳:
+//   1) Obsidian blog/          — 사람이 직접 쓴 글
+//   2) Portfolio content/articles/ — AI 생성 → 사람 검토·승인 글
+// 각 파일의 source 라벨은 해당 base 기준 상대경로로 기록한다.
+const SOURCE_DIRS = [
+  { dir: path.join(OBSIDIAN_DIR, "blog"), base: OBSIDIAN_DIR },
+  { dir: path.join(REPO_ROOT, "content", "articles"), base: REPO_ROOT },
+]
 const LEDGER_PATH =
   process.env.LEDGER_PATH || path.join(REPO_ROOT, "automation", "published-articles.json")
 
@@ -250,21 +257,24 @@ async function main() {
     console.error("✖ NOTION_TOKEN / NOTION_BLOG_DB 환경변수가 필요합니다.")
     process.exit(1)
   }
-  if (!fs.existsSync(BLOG_DIR)) {
-    console.error(`✖ Obsidian blog 폴더를 찾을 수 없습니다: ${BLOG_DIR}`)
-    process.exit(1)
-  }
-
   const ledger = loadLedger()
   const ledgerSlugs = new Set(ledger.articles.map((x) => x.slug))
 
-  const files = fs
-    .readdirSync(BLOG_DIR)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => path.join(BLOG_DIR, f))
+  const files = []
+  for (const { dir, base } of SOURCE_DIRS) {
+    if (!fs.existsSync(dir)) continue
+    for (const f of fs.readdirSync(dir)) {
+      if (f.endsWith(".md")) files.push({ file: path.join(dir, f), base })
+    }
+  }
+  if (files.length === 0) {
+    console.error("✖ 발행 소스 디렉토리에서 .md 파일을 찾을 수 없습니다.")
+    console.error(`   확인 경로: ${SOURCE_DIRS.map((s) => s.dir).join(", ")}`)
+    process.exit(1)
+  }
 
   const candidates = []
-  for (const file of files) {
+  for (const { file, base } of files) {
     const { fm, tags, body } = parseNote(fs.readFileSync(file, "utf8"))
     if (!tags.includes(READY_TAG)) continue
     const slug = fm.notion_slug || ""
@@ -274,7 +284,7 @@ async function main() {
       continue
     }
     candidates.push({
-      source: path.relative(OBSIDIAN_DIR, file),
+      source: path.relative(base, file),
       slug,
       title,
       date: fm.notion_date || "",

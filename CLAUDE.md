@@ -21,9 +21,17 @@
    - (b) 로컬 ledger `automation/published-articles.json` 에 기록돼 있으면 skip.
    ledger 는 발행 이력의 SSOT 로서 **이 저장소에 커밋되어** 세션·컨테이너가 바뀌어도 상태가 유지된다.
 
+## Article 생성(Generation)
+
+Obsidian 자료에서 블로그 초안을 자동 생성하는 앞 단계. 상세 설계·문체 가이드·프롬프트는 `automation/ARTICLE-GENERATION.md` 참고. 요약:
+
+- **선정**: `decisions/`·`knowledge/` 중 frontmatter 태그에 `status/article-candidate` 가 붙은 노트만. `node automation/find-article-candidates.mjs` 로 대상 목록을 뽑는다(생성 원장 `automation/generated-articles.json` 로 중복/변경 판별).
+- **생성**: 소스 1건 → 아티클 1편. house-style(주제문 짧게, 아이콘·기호 남발 금지, 사실은 소스 기반, 참고는 실존 공식문서 링크)로 작성해 `content/articles/<slug>.md` 에 저장. frontmatter 는 `notion_published: false` + `status/needs-review`.
+- **검토 게이트**: AI 는 초안까지만. 사람이 검토·수정 후 `status/needs-review` → `status/ready-to-publish` 로 승격해야 발행된다.
+
 ## Article 자동 발행 파이프라인
 
-- **대상 범위**: 블로그 글만. Obsidian `blog/*.md` 중 `tags:` 에 `status/ready-to-publish` 가 있는 노트.
+- **대상 범위**: 블로그 글만. `status/ready-to-publish` 태그가 있는 노트 두 소스 — (1) Obsidian `blog/*.md`(사람 작성), (2) Portfolio `content/articles/*.md`(AI 생성→사람 승인). `needs-review` 초안은 발행되지 않는다.
 - **발행 상태**: frontmatter 의 `notion_published` 값을 그대로 따른다(`true` → 사이트 공개, `false` → 초안).
 - **frontmatter → Notion Blog DB 필드 매핑**:
 
@@ -48,6 +56,7 @@
 ### 매일 실행 절차 (daily routine)
 
 1. `git -C /workspace/obsidian_claude pull --ff-only` — Obsidian 최신화 (없으면 add_repo→clone).
-2. `node automation/publish-articles.mjs` — ready-to-publish 노트 발행(중복은 자동 skip).
-3. ledger(`automation/published-articles.json`)가 바뀌었으면 `sejune-oh/Portfolio` 의 작업 브랜치에 커밋·푸시.
-4. 발행/스킵/실패 요약을 보고. 발행 0건(모두 중복)이면 조용히 종료.
+2. `node automation/find-article-candidates.mjs` — 생성 대상(new/needs-regen) 파악. 대상이 있으면 각 소스노트를 `ARTICLE-GENERATION.md` 규칙대로 초안 생성해 `content/articles/` 에 저장하고 생성 원장을 갱신한다. 생성물은 `needs-review` 라 이번 실행에서 자동 발행되지 않는다(사람 검토 대기).
+3. `node automation/publish-articles.mjs` — `status/ready-to-publish` 로 승격된 노트만 발행(중복은 자동 skip).
+4. 원장(`published-articles.json`/`generated-articles.json`)·초안이 바뀌었으면 `sejune-oh/Portfolio` 작업 브랜치에 커밋·푸시.
+5. 생성/발행/스킵/실패 요약을 보고. 새 생성·발행이 모두 0건이면 조용히 종료.
