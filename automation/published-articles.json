@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "articles": [
+    {
+      "slug": "loop-engineering-design",
+      "source": "blog/blog-loop-engineering-1-설계.md",
+      "title": "루프 엔지니어링 (1) — 멈출 줄 아는 자동화를 설계하는 법",
+      "notionPageId": null,
+      "publishedAt": null,
+      "note": "이미 Notion 에 존재하여 ledger 보정"
+    },
+    {
+      "slug": "loop-engineering-defects",
+      "source": "blog/blog-loop-engineering-2-결함.md",
+      "title": "루프 엔지니어링 (2) — 실제로 돌려 보고 찾은 결함 18개",
+      "notionPageId": null,
+      "publishedAt": null,
+      "note": "이미 Notion 에 존재하여 ledger 보정"
+    }
+  ]
+}
