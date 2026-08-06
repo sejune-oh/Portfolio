@@ -25,7 +25,8 @@ const REPO_ROOT = path.resolve(__dirname, "..")
 const DRY_RUN = process.argv.includes("--dry-run")
 const OBSIDIAN_DIR = process.env.OBSIDIAN_DIR || "/workspace/obsidian_claude"
 const BLOG_DIR = path.join(OBSIDIAN_DIR, "blog")
-const LEDGER_PATH = path.join(REPO_ROOT, "automation", "published-articles.json")
+const LEDGER_PATH =
+  process.env.LEDGER_PATH || path.join(REPO_ROOT, "automation", "published-articles.json")
 
 const TOKEN = process.env.NOTION_TOKEN
 const BLOG_DB = process.env.NOTION_BLOG_DB
