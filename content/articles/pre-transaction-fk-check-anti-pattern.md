@@ -86,3 +86,5 @@ static bool IsFkViolation(DbUpdateException ex) =>
 
 - [Microsoft Learn: Using transactions (EF Core)](https://learn.microsoft.com/en-us/ef/core/saving/transactions)
 - SQL Server error 547: INSERT statement conflicted with the FOREIGN KEY constraint
+
+이 글은 AI가 사실을 기반으로 작성한 글입니다.

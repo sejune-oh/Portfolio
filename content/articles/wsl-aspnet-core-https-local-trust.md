@@ -95,3 +95,5 @@ Kestrel 로그의 `Failed to authenticate HTTPS connection`은 서버가 본 인
 - [Microsoft Learn: Enforce HTTPS in ASP.NET Core](https://learn.microsoft.com/aspnet/core/security/enforcing-ssl)
 - [mkcert (FiloSottile/mkcert)](https://github.com/FiloSottile/mkcert)
 - [WSL dev-certs 신뢰 한계 안내](https://aka.ms/dev-certs-trust)
+
+이 글은 AI가 사실을 기반으로 작성한 글입니다.

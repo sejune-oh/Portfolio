@@ -103,3 +103,5 @@ _context.Hospitals
 - [EF Core: Single vs. split queries](https://learn.microsoft.com/en-us/ef/core/querying/single-split-queries)
 - [EF Core: Related data and serialization](https://learn.microsoft.com/en-us/ef/core/querying/related-data)
 - [AutoMapper: Queryable Extensions (ProjectTo)](https://docs.automapper.org/en/latest/Queryable-Extensions.html)
+
+이 글은 AI가 사실을 기반으로 작성한 글입니다.

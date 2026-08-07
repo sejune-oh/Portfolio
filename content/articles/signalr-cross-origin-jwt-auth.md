@@ -109,3 +109,5 @@ app.MapHub<MyHub>("/hubs/my-hub");
 
 - [Microsoft Learn: Authentication and authorization in ASP.NET Core SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz)
 - [Microsoft Learn: Enable CORS in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/cors)
+
+이 글은 AI가 사실을 기반으로 작성한 글입니다.

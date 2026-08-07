@@ -63,3 +63,5 @@ destructure 자체는 레벨이 켜져야 실행되지만, `JsonSerializer.Seria
 
 - [Serilog: Writing Log Events](https://github.com/serilog/serilog/wiki/Writing-Log-Events)
 - [Microsoft Learn: Logging in .NET (message template)](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging)
+
+이 글은 AI가 사실을 기반으로 작성한 글입니다.
