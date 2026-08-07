@@ -25,7 +25,7 @@
 
 Obsidian 자료에서 블로그 초안을 자동 생성하는 앞 단계. 상세 설계·문체 가이드·프롬프트는 `automation/ARTICLE-GENERATION.md` 참고. 요약:
 
-- **선정**: `decisions/`·`knowledge/` 중 frontmatter 태그에 `status/article-candidate` 가 붙은 노트만. `node automation/find-article-candidates.mjs` 로 대상 목록을 뽑는다(생성 원장 `automation/generated-articles.json` 로 중복/변경 판별).
+- **선정**: `decisions/`·`knowledge/` 중 frontmatter 태그에 `article-candidate`(또는 `status/article-candidate`) 가 붙은 노트만. `node automation/find-article-candidates.mjs` 로 대상 목록을 뽑는다(생성 원장 `automation/generated-articles.json` 로 중복/변경 판별).
 - **생성**: 소스 1건 → 아티클 1편. house-style(주제문 짧게, 아이콘·기호 남발 금지, 사실은 소스 기반, 참고는 실존 공식문서 링크)로 작성해 `content/articles/<slug>.md` 에 저장. frontmatter 는 `notion_published: false` + `status/needs-review`.
 - **검토 게이트**: AI 는 초안까지만. 사람이 검토·수정 후 `status/needs-review` → `status/ready-to-publish` 로 승격해야 발행된다.
 

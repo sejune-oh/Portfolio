@@ -18,7 +18,7 @@ Obsidian 자료 소스에서 블로그 아티클 **초안**을 자동 생성하�
 
 | 항목 | 결정 |
 | --- | --- |
-| 선정 신호 | Obsidian 노트에 **`status/article-candidate`** 태그를 사람이 붙인다(opt-in). |
+| 선정 신호 | Obsidian 노트에 **`article-candidate`** 태그를 사람이 붙인다(opt-in). `status/article-candidate` 표기도 허용. |
 | 생성 대상 범위 | `decisions/` + `knowledge/` 두 폴더만. |
 | 검토 게이트 | 생성물은 초안(draft)으로만 나오고, 사람 검토·승인 후에만 발행. |
 | 초안 저장 위치 | **Portfolio 저장소** `content/articles/<slug>.md` (Obsidian은 참조 전용이라 역기입 금지). |
@@ -26,7 +26,7 @@ Obsidian 자료 소스에서 블로그 아티클 **초안**을 자동 생성하�
 
 ## ① 선정 (candidate 탐색)
 
-- 대상: `decisions/*.md`, `knowledge/*.md` 중 frontmatter `tags:` 에 **`status/article-candidate`** 가 있는 노트.
+- 대상: `decisions/*.md`, `knowledge/*.md` 중 frontmatter `tags:` 에 **`article-candidate`**(또는 `status/article-candidate`) 가 있는 노트.
 - 이미 생성된 소스는 제외한다 — 생성 원장 `automation/generated-articles.json` 의 `sourcePath` + `sourceHash` 로 판별.
   - 원장에 없음 → 신규 생성.
   - 원장에 있고 해시 동일 → skip.

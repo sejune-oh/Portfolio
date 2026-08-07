@@ -1,4 +1,13 @@
 {
   "version": 1,
-  "articles": []
+  "articles": [
+    {
+      "sourcePath": "knowledge/ef-core-include-split-query-with-projectto.md",
+      "sourceHash": "ee04b2645707",
+      "slug": "ef-core-include-vs-splitquery-projectto",
+      "draftPath": "content/articles/ef-core-include-vs-splitquery-projectto.md",
+      "generatedAt": "2026-08-06T00:00:00Z",
+      "status": "needs-review"
+    }
+  ]
 }

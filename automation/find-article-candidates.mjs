@@ -26,7 +26,8 @@ const OBSIDIAN_DIR = process.env.OBSIDIAN_DIR || "/workspace/obsidian_claude"
 const GEN_LEDGER_PATH =
   process.env.GEN_LEDGER_PATH || path.join(REPO_ROOT, "automation", "generated-articles.json")
 
-const CANDIDATE_TAG = "status/article-candidate"
+// 선정 태그. 어느 하나라도 있으면 후보. ('status/' 접두어 유무 둘 다 허용)
+const CANDIDATE_TAGS = ["article-candidate", "status/article-candidate"]
 const SCAN_DIRS = ["decisions", "knowledge"]
 
 // frontmatter 의 tags 리스트만 최소 파싱.
@@ -54,8 +55,22 @@ function parseTags(raw) {
   return tags
 }
 
+// frontmatter 이후 본문만 추출.
+function parseBody(raw) {
+  const text = raw.replace(/\r\n/g, "\n")
+  if (!text.startsWith("---\n")) return text
+  const end = text.indexOf("\n---", 4)
+  if (end === -1) return text
+  return text.slice(end + 4).replace(/^\n+/, "")
+}
+
+// 본문 기준 해시. 태그·날짜 등 frontmatter 변경은 재생성 트리거로 보지 않는다.
 function hashContent(raw) {
-  return crypto.createHash("sha256").update(raw).digest("hex").slice(0, 12)
+  return crypto.createHash("sha256").update(parseBody(raw)).digest("hex").slice(0, 12)
+}
+
+function hasCandidateTag(tags) {
+  return CANDIDATE_TAGS.some((t) => tags.includes(t))
 }
 
 function loadLedger() {
@@ -80,7 +95,7 @@ function main() {
       if (!f.endsWith(".md")) continue
       const full = path.join(dir, f)
       const raw = fs.readFileSync(full, "utf8")
-      if (!parseTags(raw).includes(CANDIDATE_TAG)) continue
+      if (!hasCandidateTag(parseTags(raw))) continue
 
       const sourcePath = `${sub}/${f}`
       const sourceHash = hashContent(raw)
@@ -107,7 +122,7 @@ function main() {
     return
   }
 
-  console.log(`\narticle candidate 탐색 (태그: ${CANDIDATE_TAG})`)
+  console.log(`\narticle candidate 탐색 (태그: ${CANDIDATE_TAGS.join(" 또는 ")})`)
   console.log(`  스캔 폴더: ${SCAN_DIRS.join(", ")}  (base: ${OBSIDIAN_DIR})`)
   console.log(`  후보 총계: ${candidates.length}`)
   const g = candidates.filter((c) => c.status === "new").length
