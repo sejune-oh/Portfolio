@@ -8,6 +8,30 @@
       "draftPath": "content/articles/ef-core-include-vs-splitquery-projectto.md",
       "generatedAt": "2026-08-06T00:00:00Z",
       "status": "needs-review"
+    },
+    {
+      "sourcePath": "knowledge/signalr-cross-origin-jwt-auth-setup.md",
+      "sourceHash": "19d3e783d8b5",
+      "slug": "signalr-cross-origin-jwt-auth",
+      "draftPath": "content/articles/signalr-cross-origin-jwt-auth.md",
+      "generatedAt": "2026-08-07T00:00:00Z",
+      "status": "needs-review"
+    },
+    {
+      "sourcePath": "knowledge/structured-logging-컬렉션을-string-join으로-합치지-말기.md",
+      "sourceHash": "095b6662afbd",
+      "slug": "structured-logging-pass-collections-not-strings",
+      "draftPath": "content/articles/structured-logging-pass-collections-not-strings.md",
+      "generatedAt": "2026-08-07T00:00:00Z",
+      "status": "needs-review"
+    },
+    {
+      "sourcePath": "knowledge/check-fk-anti-pattern.md",
+      "sourceHash": "1ac5d0f79707",
+      "slug": "pre-transaction-fk-check-anti-pattern",
+      "draftPath": "content/articles/pre-transaction-fk-check-anti-pattern.md",
+      "generatedAt": "2026-08-07T00:00:00Z",
+      "status": "needs-review"
     }
   ]
 }
