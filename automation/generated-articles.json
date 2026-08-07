@@ -32,6 +32,24 @@
       "draftPath": "content/articles/pre-transaction-fk-check-anti-pattern.md",
       "generatedAt": "2026-08-07T00:00:00Z",
       "status": "needs-review"
+    },
+    {
+      "sourcePath": "knowledge/wsl2-aspnet-core-https-dev-cert-공유.md",
+      "sourceHash": "7e3532dc2a5a",
+      "slug": "wsl-aspnet-core-https-local-trust",
+      "draftPath": "content/articles/wsl-aspnet-core-https-local-trust.md",
+      "generatedAt": "2026-08-07T00:00:00Z",
+      "status": "needs-review",
+      "note": "2개 소스 병합 (clustering)"
+    },
+    {
+      "sourcePath": "knowledge/setting-the-ssl-for-connect-between-wsl-to-window.md",
+      "sourceHash": "2e9f5f73504e",
+      "slug": "wsl-aspnet-core-https-local-trust",
+      "draftPath": "content/articles/wsl-aspnet-core-https-local-trust.md",
+      "generatedAt": "2026-08-07T00:00:00Z",
+      "status": "needs-review",
+      "note": "2개 소스 병합 (clustering)"
     }
   ]
 }

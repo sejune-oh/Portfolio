@@ -1,14 +1,14 @@
 ---
 tags:
   - type/blog-post
-  - status/needs-review
+  - status/ready-to-publish
 notion_title: "Include는 지워도 되지만 AsSplitQuery는 아니다"
 notion_slug: ef-core-include-vs-splitquery-projectto
 notion_date: 2026-08-06
 notion_category: Backend
 notion_tags: EF Core, AutoMapper, Performance, .NET
 notion_summary: ProjectTo가 JOIN을 자동으로 만들어 주니 Include는 지워도 된다. 하지만 함께 지운 AsSplitQuery는 실행 전략이라 대체되지 않는다. 그 한 줄을 놓쳐 GET /hospitals 응답이 0.04초에서 91초로 돌아간 이야기.
-notion_published: false
+notion_published: true
 source_notes:
   - knowledge/ef-core-include-split-query-with-projectto.md
 source_hash: d773465f6ce0
