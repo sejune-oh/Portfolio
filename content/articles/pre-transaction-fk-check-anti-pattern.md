@@ -1,21 +1,21 @@
 ---
 tags:
   - type/blog-post
-  - status/needs-review
+  - status/ready-to-publish
 notion_title: "트랜잭션 밖 FK 사전 체크 안티패턴"
 notion_slug: pre-transaction-fk-check-anti-pattern
 notion_date: 2026-08-07
 notion_category: Backend
 notion_tags: EF Core, Database, Concurrency, .NET
 notion_summary: 트랜잭션 시작 전에 SELECT로 부모 존재를 확인하는 패턴은 TOCTOU race를 못 막으면서 왕복 쿼리만 늘린다. 결국 DB의 FK 제약이 최종 가드라는 점과, 제거·예외 분기 등 현실적 대안.
-notion_published: false
+notion_published: true
 source_notes:
   - knowledge/check-fk-anti-pattern.md
 source_hash: 1ac5d0f79707
 generated_at: 2026-08-07T00:00:00Z
 ---
 
-**트랜잭션을 시작하기 전에 부모가 있는지 `SELECT`로 확인하는 코드는, 정작 경쟁 상태(race)를 막지 못하면서 왕복 쿼리만 늘린다.** DB의 FK 제약이 어차피 최종 가드이기 때문이다.
+**트랜잭션을 시작하기 전에 부모가 있는지 SELECT로 확인하는 코드는, 정작 경쟁 상태(race)를 막지 못하면서 왕복 쿼리만 늘린다.** DB의 FK 제약이 어차피 최종 가드이기 때문이다.
 
 ## 확인과 사용 사이의 틈
 

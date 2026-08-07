@@ -23,6 +23,34 @@
       "title": "EF Core: Include·AsSplitQuery·ProjectTo",
       "notionPageId": "3b52a99d-a03d-8176-80f1-dbab4e8947a3",
       "publishedAt": "2026-08-07T04:00:29.792Z"
+    },
+    {
+      "slug": "pre-transaction-fk-check-anti-pattern",
+      "source": "content/articles/pre-transaction-fk-check-anti-pattern.md",
+      "title": "트랜잭션 밖 FK 사전 체크 안티패턴",
+      "notionPageId": "3b52a99d-a03d-8100-9c8c-c6b4a40276e3",
+      "publishedAt": "2026-08-07T06:37:02.743Z"
+    },
+    {
+      "slug": "signalr-cross-origin-jwt-auth",
+      "source": "content/articles/signalr-cross-origin-jwt-auth.md",
+      "title": "SignalR cross-origin + JWT 인증 설정",
+      "notionPageId": "3b52a99d-a03d-8165-a1a1-d71618b7e487",
+      "publishedAt": "2026-08-07T06:37:04.098Z"
+    },
+    {
+      "slug": "structured-logging-pass-collections-not-strings",
+      "source": "content/articles/structured-logging-pass-collections-not-strings.md",
+      "title": "구조화 로깅과 컬렉션 직렬화",
+      "notionPageId": "3b52a99d-a03d-817d-81e5-f6eac38426d4",
+      "publishedAt": "2026-08-07T06:37:05.309Z"
+    },
+    {
+      "slug": "wsl-aspnet-core-https-local-trust",
+      "source": "content/articles/wsl-aspnet-core-https-local-trust.md",
+      "title": "WSL 로컬 HTTPS 인증서 신뢰 설정",
+      "notionPageId": "3b52a99d-a03d-8152-85fd-e2369ad109f8",
+      "publishedAt": "2026-08-07T06:37:08.510Z"
     }
   ]
 }

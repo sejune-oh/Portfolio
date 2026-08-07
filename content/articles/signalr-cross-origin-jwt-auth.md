@@ -1,14 +1,14 @@
 ---
 tags:
   - type/blog-post
-  - status/needs-review
+  - status/ready-to-publish
 notion_title: "SignalR cross-origin + JWT 인증 설정"
 notion_slug: signalr-cross-origin-jwt-auth
 notion_date: 2026-08-07
 notion_category: Backend
 notion_tags: SignalR, ASP.NET Core, JWT, CORS
 notion_summary: 브라우저 SignalR이 cross-origin에서 JWT로 인증하려면 CORS 자격증명, 쿼리스트링 토큰 인식, 클라이언트 accessTokenFactory 세 개가 동시에 맞아야 한다. 하나만 빠져도 negotiate나 WebSocket upgrade에서 끊긴다.
-notion_published: false
+notion_published: true
 source_notes:
   - knowledge/signalr-cross-origin-jwt-auth-setup.md
 source_hash: 19d3e783d8b5

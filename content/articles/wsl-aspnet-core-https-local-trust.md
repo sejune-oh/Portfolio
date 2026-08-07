@@ -1,14 +1,14 @@
 ---
 tags:
   - type/blog-post
-  - status/needs-review
+  - status/ready-to-publish
 notion_title: "WSL 로컬 HTTPS 인증서 신뢰 설정"
 notion_slug: wsl-aspnet-core-https-local-trust
 notion_date: 2026-08-07
 notion_category: Backend
 notion_tags: WSL2, ASP.NET Core, HTTPS, Kestrel, mkcert
 notion_summary: WSL에서 띄운 HTTPS 앱은 Windows 브라우저와 WSL의 .NET HttpClient라는 분리된 두 신뢰 저장소를 모두 통과해야 한다. dev-certs만으로 안 되는 이유와, Windows dev-cert 공유 방식과 mkcert 로컬 CA 방식 두 가지 해법.
-notion_published: false
+notion_published: true
 source_notes:
   - knowledge/wsl2-aspnet-core-https-dev-cert-공유.md
   - knowledge/setting-the-ssl-for-connect-between-wsl-to-window.md

@@ -1,21 +1,21 @@
 ---
 tags:
   - type/blog-post
-  - status/needs-review
-notion_title: "구조화 로깅과 컬렉션 로깅"
+  - status/ready-to-publish
+notion_title: "구조화 로깅과 컬렉션 직렬화"
 notion_slug: structured-logging-pass-collections-not-strings
 notion_date: 2026-08-07
 notion_category: Observability
 notion_tags: Logging, Observability, .NET, Serilog
 notion_summary: ILogger 구조화 로깅에 컬렉션을 string.Join으로 미리 합쳐 넘기면 필드별 검색·필터라는 이점이 사라지고 로그가 비대해진다. 원본 컬렉션을 그대로 넘기고 포맷은 수집기에 맡겨야 하는 이유와 올바른 패턴.
-notion_published: false
+notion_published: true
 source_notes:
   - knowledge/structured-logging-컬렉션을-string-join으로-합치지-말기.md
 source_hash: 095b6662afbd
 generated_at: 2026-08-07T00:00:00Z
 ---
 
-**로그에 컬렉션을 `string.Join`으로 합쳐 넘기는 순간, 구조화 로깅은 그냥 긴 문자열 로깅으로 되돌아간다.** 원본 컬렉션을 그대로 넘기고 포맷은 수집기(sink)에게 맡기는 것이 원칙이다.
+**로그에 컬렉션을 string.Join으로 합쳐 넘기는 순간, 구조화 로깅은 그냥 긴 문자열 로깅으로 되돌아간다.** 원본 컬렉션을 그대로 넘기고 포맷은 수집기(sink)에게 맡기는 것이 원칙이다.
 
 ## 무엇을 잃는가
 
