@@ -2,7 +2,7 @@
 tags:
   - type/blog-post
   - status/ready-to-publish
-notion_title: "Include는 지워도 되지만 AsSplitQuery는 아니다"
+notion_title: "EF Core: Include·AsSplitQuery·ProjectTo"
 notion_slug: ef-core-include-vs-splitquery-projectto
 notion_date: 2026-08-06
 notion_category: Backend

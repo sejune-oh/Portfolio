@@ -2,7 +2,7 @@
 tags:
   - type/blog-post
   - status/needs-review
-notion_title: "cross-origin SignalR + JWT, 설정 세 개가 동시에 맞아야 연결된다"
+notion_title: "SignalR cross-origin + JWT 인증 설정"
 notion_slug: signalr-cross-origin-jwt-auth
 notion_date: 2026-08-07
 notion_category: Backend

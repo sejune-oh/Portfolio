@@ -2,7 +2,7 @@
 tags:
   - type/blog-post
   - status/needs-review
-notion_title: "구조화 로깅에서 컬렉션을 string.Join으로 합치지 마라"
+notion_title: "구조화 로깅과 컬렉션 로깅"
 notion_slug: structured-logging-pass-collections-not-strings
 notion_date: 2026-08-07
 notion_category: Observability

@@ -20,7 +20,7 @@
     {
       "slug": "ef-core-include-vs-splitquery-projectto",
       "source": "content/articles/ef-core-include-vs-splitquery-projectto.md",
-      "title": "Include는 지워도 되지만 AsSplitQuery는 아니다",
+      "title": "EF Core: Include·AsSplitQuery·ProjectTo",
       "notionPageId": "3b52a99d-a03d-8176-80f1-dbab4e8947a3",
       "publishedAt": "2026-08-07T04:00:29.792Z"
     }

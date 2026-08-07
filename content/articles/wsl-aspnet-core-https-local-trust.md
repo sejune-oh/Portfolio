@@ -2,7 +2,7 @@
 tags:
   - type/blog-post
   - status/needs-review
-notion_title: "WSL에서 ASP.NET Core HTTPS를 Windows와 .NET 양쪽이 신뢰하게 만들기"
+notion_title: "WSL 로컬 HTTPS 인증서 신뢰 설정"
 notion_slug: wsl-aspnet-core-https-local-trust
 notion_date: 2026-08-07
 notion_category: Backend

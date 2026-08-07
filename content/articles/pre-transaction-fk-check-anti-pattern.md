@@ -2,7 +2,7 @@
 tags:
   - type/blog-post
   - status/needs-review
-notion_title: "트랜잭션 밖 FK 존재 확인은 race도 못 막고 왕복만 늘린다"
+notion_title: "트랜잭션 밖 FK 사전 체크 안티패턴"
 notion_slug: pre-transaction-fk-check-anti-pattern
 notion_date: 2026-08-07
 notion_category: Backend
