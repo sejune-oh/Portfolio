@@ -257,6 +257,15 @@ async function main() {
     console.error("✖ NOTION_TOKEN / NOTION_BLOG_DB 환경변수가 필요합니다.")
     process.exit(1)
   }
+  // Obsidian 부재 감지: blog/(사람 작성) 소스가 통째로 사라진 상태를
+  // "발행할 것 없음"으로 착각하지 않도록 크게 경고하고, 끝에서 비정상 종료한다.
+  // content/articles/(Portfolio) 발행은 그대로 진행한다.
+  const obsidianMissing = !fs.existsSync(OBSIDIAN_DIR)
+  if (obsidianMissing) {
+    console.error(`\n⚠ Obsidian vault 없음: ${OBSIDIAN_DIR}`)
+    console.error(`   blog/(사람 작성) 발행 대상을 확인하지 못합니다. content/articles/ 만 처리합니다.`)
+    console.error(`   add_repo 로 연결/clone 후 재실행해야 blog/ 대상까지 반영됩니다.`)
+  }
   const ledger = loadLedger()
   const ledgerSlugs = new Set(ledger.articles.map((x) => x.slug))
 
@@ -362,9 +371,13 @@ async function main() {
   for (const a of results.skipped) console.log(`     - ${a.slug}  (${a.reason})`)
   console.log(`  ✖ 실패: ${results.failed.length}`)
   for (const a of results.failed) console.log(`     - ${a.slug}  (${a.reason})`)
+  if (obsidianMissing) {
+    console.log(`  ⚠ Obsidian vault 없음 — blog/ 발행 대상 미확인 (위 결과는 content/articles/ 한정)`)
+  }
   console.log("")
 
   if (results.failed.length > 0) process.exit(2)
+  if (obsidianMissing) process.exit(3) // 실패는 없지만 소스 일부 미확인 → 착시 방지용 신호
 }
 
 main().catch((e) => {

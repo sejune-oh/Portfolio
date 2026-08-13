@@ -55,8 +55,8 @@ Obsidian 자료에서 블로그 초안을 자동 생성하는 앞 단계. 상세
 
 ### 매일 실행 절차 (daily routine)
 
-1. `git -C /workspace/obsidian_claude pull --ff-only` — Obsidian 최신화 (없으면 add_repo→clone).
+1. `git -C /workspace/obsidian_claude pull --ff-only` — Obsidian 최신화 (없으면 add_repo→clone). **Obsidian vault 가 없으면 두 스크립트 모두 exit 3 으로 크게 실패한다**(0건은 착시일 수 있으므로). 이 경우 반드시 add_repo→clone 후 재실행하고, 조용히 종료하지 않는다.
 2. `node automation/find-article-candidates.mjs` — 생성 대상(new/needs-regen) 파악. 대상이 있으면 각 소스노트를 `ARTICLE-GENERATION.md` 규칙대로 초안 생성해 `content/articles/` 에 저장하고 생성 원장을 갱신한다. 생성물은 `needs-review` 라 이번 실행에서 자동 발행되지 않는다(사람 검토 대기).
 3. `node automation/publish-articles.mjs` — `status/ready-to-publish` 로 승격된 노트만 발행(중복은 자동 skip).
 4. 원장(`published-articles.json`/`generated-articles.json`)·초안이 바뀌었으면 `sejune-oh/Portfolio` 작업 브랜치에 커밋·푸시.
-5. 생성/발행/스킵/실패 요약을 보고. 새 생성·발행이 모두 0건이면 조용히 종료.
+5. 생성/발행/스킵/실패 요약을 보고. 새 생성·발행이 모두 0건이면 조용히 종료. 단 **exit 3(Obsidian 부재)** 는 조용히 종료 대상이 아니다 — 소스를 확인 못 한 상태이므로 반드시 보고하고 재실행한다.

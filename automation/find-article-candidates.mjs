@@ -84,6 +84,24 @@ function loadLedger() {
 }
 
 function main() {
+  // Obsidian 부재 가드: 이 스크립트의 유일한 소스가 Obsidian 이라,
+  // vault 가 없으면 "0건"은 사실이 아니라 착시다. 조용히 넘기지 않고 크게 실패한다.
+  if (!fs.existsSync(OBSIDIAN_DIR) || !fs.statSync(OBSIDIAN_DIR).isDirectory()) {
+    if (JSON_OUT) {
+      process.stdout.write(
+        JSON.stringify(
+          { error: "obsidian-missing", obsidianDir: OBSIDIAN_DIR, candidates: [], todo: [] },
+          null,
+          2,
+        ) + "\n",
+      )
+    } else {
+      console.error(`\n✖ Obsidian vault 를 찾을 수 없습니다: ${OBSIDIAN_DIR}`)
+      console.error(`   소스가 없어 결과(0건)를 신뢰할 수 없습니다. add_repo 로 연결/clone 후 재실행하세요.\n`)
+    }
+    process.exit(3)
+  }
+
   const ledger = loadLedger()
   const byPath = new Map(ledger.articles.map((a) => [a.sourcePath, a]))
 
