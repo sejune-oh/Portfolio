@@ -1,14 +1,14 @@
 ---
 tags:
   - type/blog-post
-  - status/needs-review
+  - status/ready-to-publish
 notion_title: "GitHub App 설치 토큰 Stateless 전환 대응"
 notion_slug: github-app-installation-token-stateless
 notion_date: 2026-08-14
 notion_category: Backend
 notion_tags: GitHub, GitHub App, Authentication, .NET
 notion_summary: GitHub App 설치 토큰이 ghs_ prefix는 유지한 채 JWT 형태·약 520자로 길어지는 Stateless 형식으로 바뀐다. 길이·정규식·DB 컬럼 가정을 걷어내고 opaque 액세스 토큰으로 취급하는 법과, override 헤더로 미리 테스트하는 절차.
-notion_published: false
+notion_published: true
 source_notes:
   - knowledge/github-new-installation-token-type.md
 source_hash: c0549b91d911

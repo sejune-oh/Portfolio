@@ -51,6 +51,13 @@
       "title": "WSL 로컬 HTTPS 인증서 신뢰 설정",
       "notionPageId": "3b52a99d-a03d-8152-85fd-e2369ad109f8",
       "publishedAt": "2026-08-07T06:37:08.510Z"
+    },
+    {
+      "slug": "github-app-installation-token-stateless",
+      "source": "content/articles/github-app-installation-token-stateless.md",
+      "title": "GitHub App 설치 토큰 Stateless 전환 대응",
+      "notionPageId": "3bc2a99d-a03d-81ff-91df-ebb7cf4fa326",
+      "publishedAt": "2026-08-14T03:38:17.794Z"
     }
   ]
 }
