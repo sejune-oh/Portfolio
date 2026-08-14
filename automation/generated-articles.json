@@ -50,6 +50,14 @@
       "generatedAt": "2026-08-07T00:00:00Z",
       "status": "needs-review",
       "note": "2개 소스 병합 (clustering)"
+    },
+    {
+      "sourcePath": "knowledge/github-new-installation-token-type.md",
+      "sourceHash": "c0549b91d911",
+      "slug": "github-app-installation-token-stateless",
+      "draftPath": "content/articles/github-app-installation-token-stateless.md",
+      "generatedAt": "2026-08-14T00:00:00Z",
+      "status": "needs-review"
     }
   ]
 }
